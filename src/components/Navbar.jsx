@@ -9,7 +9,7 @@ export function Navbar() {
   return (
     <nav className="w-full p-5 bg-gray-100">
       <div className="sm:flex sm:justify-between items-center">
-        <ul className="flex gap-5 justify-center" >
+        <ul className="flex gap-5 justify-center items-center" >
         <Link to={`/`}>
           <Stack direction="row" spacing={2}>
             <Button size="small" ><h1 className="text-xl">Homepage</h1></Button>

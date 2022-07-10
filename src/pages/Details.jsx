@@ -18,7 +18,7 @@ export function Details() {
   const { id } = useParams()
 
   useEffect(() => {
-    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${APIkey}&language`
+    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${APIkey}&language=pt-BR`
     fetch(url).then(res => res.json().then(data => {
 
       const movie = {
