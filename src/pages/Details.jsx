@@ -45,17 +45,20 @@ export function Details() {
     <section className="p-5 flex flex-col">
       <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <Item sx={{
             backgroundColor: 'primary.dark',
           }}>
-            <img src={movie?.image}  alt={movie?.title} className="w-80" />
+            <div className="flex items-center justify-center">
+              <img src={movie?.image}  alt={movie?.title} className="w-80" />
+            </div>
+            
           </Item>
         </Grid>
         <Grid item xs={8}>
           <Item>{movie?.sinopse}</Item>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <div className="flex flex-col gap-5">
           <Item>
             <h2>Release {movie?.release}</h2>
