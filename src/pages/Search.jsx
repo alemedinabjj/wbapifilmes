@@ -1,5 +1,5 @@
-import { APIkey } from '../config/key.js'
 import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -9,23 +9,30 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom'
 
 
+const searchURL = import.meta.env.VITE_SEARCH
+const apiKey = import.meta.env.VITE_API_KEY
 
-export function Home () {
 
-  const [movies, setMovies] = useState([])
+
+export function Search() {
   const image_path = 'https://image.tmdb.org/t/p/w500'
+  const [searchParams] = useSearchParams()
+  const [movies, setMovies] = useState([])
+  const query = searchParams.get('q')
 
   useEffect(() => {
-    const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${APIkey}&language=en-US&page=1`
+    const url = `${searchURL}?${apiKey}&query=${query}`
     fetch(url)
       .then(res => res.json())
       .then(data => setMovies(data.results))
-  },[])
+  },[query])
 
   return (
     <div className='flex flex-col justify-center items-center'>
+       <h1 className='p-10 text-3xl'>Resultados para: <span className='text-sky-600'>{query}</span></h1>
       <section className='grid justify-center sm:grid-cols-2 md:grid-cols-4 '>
-        {movies.length === 0 && <h1>Carregando...</h1>}
+        {movies.length === 0 &&  <h1 className='text-center'>movie not found</h1>}
+       
         {movies.map(movie => {
           return (
             <Card sx={{ maxWidth: 345 }} className="m-5" key={movie.id}>

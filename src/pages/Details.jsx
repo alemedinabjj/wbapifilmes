@@ -43,7 +43,7 @@ export function Details() {
 
   return (
     <section className="p-5 flex flex-col">
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1 }} >
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <Item sx={{
