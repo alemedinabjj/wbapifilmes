@@ -8,8 +8,8 @@ import Stack from '@mui/material/Stack';
 export function Navbar() {
   return (
     <nav className="w-full p-5 bg-gray-100">
-      <div className="flex justify-between items-center">
-        <ul className="flex gap-5" >
+      <div className="sm:flex sm:justify-between items-center">
+        <ul className="flex gap-5 justify-center" >
         <Link to={`/`}>
           <Stack direction="row" spacing={2}>
             <Button size="small" ><h1 className="text-xl">Homepage</h1></Button>
@@ -21,7 +21,7 @@ export function Navbar() {
          </Stack>  
         </Link>
         </ul>
-        <div className="flex gap-3">
+        <div className="sm:flex gap-3 p-5 sm:p-0 flex justify-center">
           <a href="https://www.facebook.com/"><FaFacebook size={30} className="hover:scale-[1.2] transition"/></a>
           <a href="https://www.linkedin.com/"><FaLinkedin size={30} className="hover:scale-[1.2] transition"/></a>
           <a href="https://twitter.com/"><FaTwitter size={30} className="hover:scale-[1.2] transition"/></a>
