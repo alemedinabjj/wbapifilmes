@@ -56,6 +56,7 @@ export function Details() {
           </Item>
         </Grid>
         <Grid item xs={8}>
+          <h1 className="text-3xl text-center pb-10">Sinopse</h1>
           <Item>{movie?.sinopse}</Item>
         </Grid>
         <Grid item xs={4}>
