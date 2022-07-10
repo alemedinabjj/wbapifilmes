@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom'
 
 
-const searchURL = import.meta.env.VITE_SEARCH
+const searchURL = 'https://api.themoviedb.org/3/search/movie/'
 const apiKey = import.meta.env.VITE_API_KEY
 
 
