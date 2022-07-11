@@ -7,7 +7,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom'
-
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const searchURL = import.meta.env.VITE_SEARCH
 const apiKey = import.meta.env.VITE_API_KEY
@@ -31,8 +32,14 @@ export function Search() {
     <div className='flex flex-col justify-center items-center'>
        <h1 className='p-10 text-3xl'>Resultados para: <span className='text-sky-600'>{query}</span></h1>
       <section className='grid justify-center sm:grid-cols-2 md:grid-cols-4 '>
-        {movies.length === 0 &&  <h1 className='text-center'>movie not found</h1>}
-       
+      {movies.length === 0 && (
+          <div className="flex items-center justify-center h-[40vh] w-full">
+            <Box sx={{ display: "flex" }}>
+            <CircularProgress />
+          </Box>
+          </div>
+          
+        )}
         {movies.map(movie => {
           return (
             <Card sx={{ maxWidth: 345 }} className="m-5" key={movie.id}>
