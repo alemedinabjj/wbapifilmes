@@ -16,7 +16,7 @@ export function Home() {
   const image_path = "https://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
-    const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${APIkey}&language=en-US&page=1`;
+    const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${APIkey}&language=pt-BR&page=1`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMovies(data.results));
