@@ -22,11 +22,10 @@ export function Navbar() {
         </Link>
         </ul>
         <div className="sm:flex gap-3 p-5 sm:p-0 flex justify-center">
-          <a href="https://www.facebook.com/"><FaFacebook size={30} className="hover:scale-[1.2] transition"/></a>
-          <a href="https://www.linkedin.com/"><FaLinkedin size={30} className="hover:scale-[1.2] transition"/></a>
-          <a href="https://twitter.com/"><FaTwitter size={30} className="hover:scale-[1.2] transition"/></a>
-          <a href="https://www.instagram.com/"><FaInstagram size={30} className="hover:scale-[1.2] transition" /></a>
-          <a href="https://github.com.br"><FaGithub size={30} className="hover:scale-[1.2] transition"/></a>
+          <a href="https://www.linkedin.com/"><FaLinkedin size={25} className="hover:scale-[1.2] transition"/></a>
+          <a href="https://twitter.com/"><FaTwitter size={25} className="hover:scale-[1.2] transition"/></a>
+          <a href="https://www.instagram.com/"><FaInstagram size={25} className="hover:scale-[1.2] transition" /></a>
+          <a href="https://github.com.br"><FaGithub size={25} className="hover:scale-[1.2] transition"/></a>
         </div>
       </div>
     

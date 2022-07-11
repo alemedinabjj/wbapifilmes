@@ -7,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom'
-
+import { FaStar } from 'react-icons/fa'
 
 
 export function Home () {
@@ -31,7 +31,7 @@ export function Home () {
             <Card sx={{ maxWidth: 345 }} className="m-5" key={movie.id}>
             <CardMedia
               component="img"
-              alt="green iguana"
+              alt={movie.title}
               height="140"
               image={image_path + movie.poster_path}
             />
@@ -39,7 +39,9 @@ export function Home () {
               <Typography gutterBottom variant="h5" component="div">
                 {movie.title}
               </Typography>
-              
+              <Typography gutterBottom variant="h5" component="div">
+                <div className='flex items-center gap-2 justify-start'><FaStar color='yellow' /> {movie.vote_average}</div>
+              </Typography>
             </CardContent>
             <CardActions>
               <Link to={`/details/${movie.id}`}>
