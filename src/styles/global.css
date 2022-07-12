@@ -5,3 +5,14 @@
 body {
   background: rgb(222, 222, 222);
 }
+
+
+main {
+  padding-top: 5rem;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding-top: 8rem;
+  }
+}

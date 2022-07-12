@@ -33,9 +33,9 @@ export function SearchBar() {
 
 
   return(
-    <div className='flex items-center justify-center gap-5 pb-5'>
+    <div className='flex items-center justify-center gap-2 sm:gap-5'>
       <TextField  size="small" id="outlined-search" label="movie" type="search"  value={search} onChange={handleChange}  />
-      <Button variant="outlined" onClick={onButtonClickHandler}>Search</Button>
+      <Button variant="outlined" size="small" onClick={onButtonClickHandler}>Search</Button>
     </div>
   )
 }

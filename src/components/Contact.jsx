@@ -48,7 +48,7 @@ export function Contact() {
           <TextField id="filled-basic" label="email" variant="filled" />
           <TextField
             id="outlined-multiline-static"
-            label="Mensagem"
+            label="message"
             multiline
             rows={9}
             placeholder="Digite sua Mensagem."

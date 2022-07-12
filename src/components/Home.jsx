@@ -23,10 +23,11 @@ export function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <main>
+      <div className="flex flex-col justify-center items-center">
       <section className="grid justify-center sm:grid-cols-2 md:grid-cols-4 ">
         {movies.length === 0 && (
-          <div className="flex items-center justify-center h-[40vh] w-full">
+          <div className="w-full flex items-center justify-center h-[40vh]">
             <Box sx={{ display: "flex" }}>
             <CircularProgress />
           </Box>
@@ -62,5 +63,7 @@ export function Home() {
         })}
       </section>
     </div>
-  );
+
+    </main>
+      );
 }

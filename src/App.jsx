@@ -5,6 +5,8 @@ import './styles/global.css'
 import { Navbar } from "./components/Navbar"
 import { Search } from "./pages/Search"
 import { Contact } from "./components/Contact"
+import { Footer } from "./components/Footer"
+
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
         <Route path='/search' element={<Search />} />
         <Route path='/contact' element={<Contact /> } />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
