@@ -14,5 +14,9 @@ main {
 @media (max-width: 600px) {
   main {
     padding-top: 9rem;
+    min-height: 100vh;
+  }
+  section {
+    min-height: 100vh;
   }
 }
