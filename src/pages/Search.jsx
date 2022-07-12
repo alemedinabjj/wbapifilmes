@@ -29,7 +29,8 @@ export function Search() {
   },[query])
 
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <main>
+      <div className='flex flex-col justify-center items-center'>
        <h1 className='p-10 text-3xl'>Resultados para: <span className='text-sky-600'>{query}</span></h1>
       <section className='grid justify-center sm:grid-cols-2 md:grid-cols-4 '>
       {movies.length === 0 && (
@@ -69,5 +70,7 @@ export function Search() {
         }
       </section>
     </div>
+    </main>
+    
   )
 }
