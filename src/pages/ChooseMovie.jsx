@@ -36,7 +36,7 @@ export function ChooseMovie() {
   return (
 
     <main className="dark:bg-slate-800">
-      <section className="flex items-center justify-center flex-col pt-10 h-[100vh]">
+      <section className="flex items-center justify-center flex-col pt-10 h-full min-h-[100vh]">
       <Button onClick={() => {
             setRandomMovie(randomizerMovie());
           }} >Escolha para mim</Button>
