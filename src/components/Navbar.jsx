@@ -20,6 +20,11 @@ export function Navbar() {
           <Button><h1 className="text-sm">Contact</h1></Button>
          </Stack>  
         </Link>
+        <Link to={`/choose`}>
+         <Stack direction="row" spacing={2}>
+          <Button><h1 className="text-sm">Choose</h1></Button>
+         </Stack>  
+        </Link>
         </ul>
       </div>
       <div className="flex items-center pt-5 sm:pt-0 gap-2">

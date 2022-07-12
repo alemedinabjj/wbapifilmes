@@ -8,6 +8,7 @@ import { Contact } from "./components/Contact"
 import { Footer } from "./components/Footer"
 
 import ThemeContextProvider from "./hooks/UseTheme.jsx";
+import { ChooseMovie } from "./pages/ChooseMovie"
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/details/:id" element={<Details />} />
         <Route path='/search' element={<Search />} />
         <Route path='/contact' element={<Contact /> } />
+        <Route path="/choose" element={<ChooseMovie />} />
       </Routes>
       <Footer />
       </ThemeContextProvider>
