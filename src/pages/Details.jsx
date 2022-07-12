@@ -90,6 +90,9 @@ export function Details() {
                     url={`https://www.youtube.com/watch?v=${movie?.video}`}
                     width="100%"
                     height="90%"
+                    pip={true}
+                    constrols={true}
+                    config={{ file: { forceHLS: true } }}
                   />
                 </Item>
               </Grid>

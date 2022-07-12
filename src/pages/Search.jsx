@@ -29,8 +29,8 @@ export function Search() {
   },[query])
 
   return (
-    <main>
-      <div className='flex flex-col justify-center items-center'>
+    <main className='dark:bg-slate-800 min-h-screen'>
+      <div className='flex flex-col justify-center items-center dark:text-white'>
        <h1 className='p-10 text-3xl'>Resultados para: <span className='text-sky-600'>{query}</span></h1>
       <section className='grid justify-center sm:grid-cols-2 md:grid-cols-4 '>
       {movies.length === 0 && (
@@ -43,10 +43,10 @@ export function Search() {
         )}
         {movies.map(movie => {
           return (
-            <Card sx={{ maxWidth: 345 }} className="m-5" key={movie.id}>
+            <Card sx={{ maxWidth: 345 }} className="m-5 dark:bg-slate-700 dark:text-white" key={movie.id}>
             <CardMedia
               component="img"
-              alt="green iguana"
+              alt={movie.title}
               height="140"
               image={image_path + movie.poster_path}
             />

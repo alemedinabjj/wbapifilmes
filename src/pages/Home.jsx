@@ -26,15 +26,15 @@ export function Home() {
     <main className="dark:bg-slate-800 min-h-screen">
       <div className="flex flex-col justify-center items-center">
       <section className="grid justify-center sm:grid-cols-2 md:grid-cols-4 ">
-        {movies.length === 0 && (
-          <div className="w-full flex items-center justify-center h-[40vh]">
-            <Box sx={{ display: "flex" }}>
-            <CircularProgress />
-          </Box>
-          </div>
-          
-        )}
         {movies.map((movie) => {
+              {movie.length === 0 && (
+                <div className="w-full flex items-center justify-center h-[40vh]">
+                  <Box sx={{ display: "flex" }}>
+                  <CircularProgress />
+                </Box>
+                </div>
+                
+              )}
           return (
             <Card sx={{ maxWidth: 345 }} className="m-5 dark:bg-slate-700" key={movie.id}>
               <CardMedia
