@@ -64,12 +64,12 @@ export function Details() {
             </Item>
           </Grid>
           <Grid item xs={8}>
-            <h1 className="text-3xl text-center pb-10">Sinopse</h1>
-            <Item>{movie?.sinopse}</Item>
+            <h1 className="text-3xl text-center pb-10 dark:text-white">Sinopse</h1>
+            <Item className="dark:bg-slate-900 dark:text-white">{movie?.sinopse}</Item>
           </Grid>
           <Grid item xs={12} sm={4}>
             <div className="flex flex-col gap-5">
-              <Item>
+              <Item className="dark:bg-slate-900 dark:text-white">
                 <div className="flex gap-5 items-center justify-center">
                   {movie?.status === "Released" ? (
                     <Chip label="Postado" color="success" />
@@ -80,35 +80,35 @@ export function Details() {
                   <h2>Release {movie?.release}</h2>
                 </div>
               </Item>
-              <Item>
-                <h1 className="text-3xl">{movie?.title}</h1>
+              <Item className="dark:bg-slate-900" >
+                <h1 className="text-3xl dark:text-white">{movie?.title}</h1>
                 <h3>{movie?.tagline}</h3>
               </Item>
             </div>
             <div className="flex flex-col gap-3 mt-3">
             <Grid>
-              <Item>
+              <Item className="dark:bg-slate-900 dark:text-white">
                 <h3 className="text-start">
                   Duraçao: {movie?.runtime} Minutos.
                 </h3>
               </Item>
             </Grid>
             <Grid>
-              <Item>
+              <Item className="dark:bg-slate-900 dark:text-white">
                 <h3 className="text-start">
                   Produzido por: {movie?.production_companies[0].name}
                 </h3>
               </Item>
             </Grid>
             <Grid>
-              <Item>
+              <Item className="dark:bg-slate-900 dark:text-white">
                 <h3 className="text-start">
                   Pais: {movie?.production_countries[0].name}
                 </h3>
               </Item>
             </Grid>
             <Grid>
-              <Item>
+              <Item className="dark:bg-slate-900 dark:text-white">
                 <h3 className="text-start">
                   Titulo original: {movie?.original_title}
                 </h3>

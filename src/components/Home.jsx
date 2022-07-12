@@ -36,15 +36,15 @@ export function Home() {
         )}
         {movies.map((movie) => {
           return (
-            <Card sx={{ maxWidth: 345 }} className="m-5" key={movie.id}>
+            <Card sx={{ maxWidth: 345 }} className="m-5 dark:bg-slate-700" key={movie.id}>
               <CardMedia
                 component="img"
                 alt={movie.title}
                 height="140"
                 image={image_path + movie.poster_path}
               />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+              <CardContent className="dark:bg-slate-900 dark:text-white">
+                <Typography gutterBottom variant="h5" component="div" >
                   {movie.title}
                 </Typography>
                 <Typography gutterBottom variant="h5" component="div">
@@ -53,7 +53,7 @@ export function Home() {
                   </div>
                 </Typography>
               </CardContent>
-              <CardActions>
+              <CardActions className="dark:bg-slate-700 flex self-end">
                 <Link to={`/details/${movie.id}`}>
                   <Button size="small">Learn More</Button>
                 </Link>

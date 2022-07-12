@@ -44,7 +44,7 @@ export function Contact() {
           noValidate
           autoComplete="off"
         >
-          <TextField id="filled-basic" label="name" variant="filled" />
+          <TextField id="filled-basic" label="name" variant="filled" className="dark:placeholder-white" />
           <TextField id="filled-basic" label="email" variant="filled" />
           <TextField
             id="outlined-multiline-static"
