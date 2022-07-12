@@ -82,7 +82,7 @@ export function Details() {
               </Item>
               <Item className="dark:bg-slate-900" >
                 <h1 className="text-3xl dark:text-white">{movie?.title}</h1>
-                <h3>{movie?.tagline}</h3>
+                <h3 className="dark:text-white">{movie?.tagline}</h3>
               </Item>
             </div>
             <div className="flex flex-col gap-3 mt-3">
