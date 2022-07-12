@@ -23,7 +23,7 @@ export function Home() {
   }, []);
 
   return (
-    <main>
+    <main className="dark:bg-slate-800">
       <div className="flex flex-col justify-center items-center">
       <section className="grid justify-center sm:grid-cols-2 md:grid-cols-4 ">
         {movies.length === 0 && (

@@ -48,7 +48,7 @@ export function Details() {
   }));
 
   return (
-    <main>
+    <main className="dark:bg-slate-800 ">
       <section className="p-5 flex flex-col">
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>

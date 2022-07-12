@@ -7,12 +7,13 @@ import { Search } from "./pages/Search"
 import { Contact } from "./components/Contact"
 import { Footer } from "./components/Footer"
 
-
+import ThemeContextProvider from "./hooks/UseTheme.jsx";
 
 function App() {
 
   return (
     <BrowserRouter>
+    <ThemeContextProvider>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -21,6 +22,7 @@ function App() {
         <Route path='/contact' element={<Contact /> } />
       </Routes>
       <Footer />
+      </ThemeContextProvider>
     </BrowserRouter>
   )
 }

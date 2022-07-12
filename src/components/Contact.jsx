@@ -31,7 +31,7 @@ export function Contact() {
   };
 
   return (
-    <main>
+    <main className="dark:bg-slate-800 ">
       <section className="flex items-center justify-center">
         <Box
         ref={form}
