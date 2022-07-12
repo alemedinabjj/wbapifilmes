@@ -4,7 +4,7 @@ import { Details } from "./pages/Details"
 import './styles/global.css'
 import { Navbar } from "./components/Navbar"
 import { Search } from "./pages/Search"
-import { Contact } from "./components/Contact"
+import { Contact } from "./pages/Contact"
 import { Footer } from "./components/Footer"
 
 import ThemeContextProvider from "./hooks/UseTheme.jsx";
