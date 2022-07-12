@@ -76,7 +76,7 @@ export function Details() {
               <Item className="dark:bg-slate-900 dark:text-white">
                 {movie?.sinopse}
               </Item>
-              <Item className="dark:bg-slate-900">
+              <Item className="dark:bg-slate-900 lg:hidden">
                 <Button>
                   <a href={`https://www.youtube.com/watch?v=${movie?.video}`} target="_blank">
                     Trailer
