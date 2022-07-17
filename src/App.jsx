@@ -10,7 +10,7 @@ import { Footer } from "./components/Footer"
 
 import ThemeContextProvider from "./hooks/UseTheme.jsx";
 import { ChooseMovie } from "./pages/ChooseMovie"
-import { BtnTop } from "./components/btnTop"
+import { BtnTop } from "./components/BtnTop"
 
 
 function App() {
