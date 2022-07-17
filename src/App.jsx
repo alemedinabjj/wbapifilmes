@@ -7,8 +7,11 @@ import { Search } from "./pages/Search"
 import { Contact } from "./pages/Contact"
 import { Footer } from "./components/Footer"
 
+
 import ThemeContextProvider from "./hooks/UseTheme.jsx";
 import { ChooseMovie } from "./pages/ChooseMovie"
+import { BtnTop } from "./components/btnTop"
+
 
 function App() {
 
@@ -23,6 +26,7 @@ function App() {
         <Route path='/contact' element={<Contact /> } />
         <Route path="/choose" element={<ChooseMovie />} />
       </Routes>
+      <BtnTop />
       <Footer />
       </ThemeContextProvider>
     </BrowserRouter>

@@ -12,19 +12,22 @@ import { Link } from "react-router-dom";
 import Chip from "@mui/material/Chip";
 import ReactPlayer from "react-player";
 import { BsArrowDownCircle } from "react-icons/bs";
+import { Recomendations } from "./Recomendations.jsx";
 
 export function Details() {
   const [movie, setMovie] = useState();
 
   const { id } = useParams();
 
-  useEffect(() => {
+  useEffect(() =>  {
     const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${APIkey}&language=pt-BR&append_to_response=videos`;
     fetch(url).then((res) =>
       res.json().then((data) => {
         const movie = {
           id,
-          video: data.videos.results[0].key,
+          classification: data.release_date.substring(0, 4),
+          genres: data.genres,
+          video: data.videos.results[0]?.key,
           production_countries: data.production_countries,
           original_title: data.original_title,
           production_companies: data.production_companies,
@@ -34,10 +37,8 @@ export function Details() {
           title: data.title,
           sinopse: data.overview,
           image: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
-          release: data.release_date,
         };
         setMovie(movie);
-        console.log(movie);
       })
     );
   }, [id]);
@@ -92,8 +93,8 @@ export function Details() {
                     url={`https://www.youtube.com/watch?v=${movie?.video}`}
                     width="100%"
                     height="90%"
-                    pip={true}
-                    constrols={true}
+                    pip
+                    constrols="true"
                     config={{ file: { forceHLS: true } }}
                   />
                 </Item>
@@ -108,8 +109,6 @@ export function Details() {
                     ) : (
                       <Chip label="Em produçao" color="primary" />
                     )}
-
-                    <h2>Release {movie?.release}</h2>
                   </div>
                 </Item>
                 <Item className="dark:bg-slate-900">
@@ -128,7 +127,7 @@ export function Details() {
                 <Grid>
                   <Item className="dark:bg-slate-900 dark:text-white">
                     <h3 className="text-start">
-                      Produzido por: {movie?.production_companies[0].name}
+                      Produzido por: {movie?.production_companies[0]?.name}
                     </h3>
                   </Item>
                 </Grid>
@@ -146,7 +145,22 @@ export function Details() {
                     </h3>
                   </Item>
                 </Grid>
+                <Grid>
+                  <Item className="dark:bg-slate-900 dark:text-white">
+                    <h3 className="text-start">
+                      Genero: {movie?.genres[0].name}
+                    </h3>
+                  </Item>
+                </Grid>
+                <Grid>
+                  <Item className="dark:bg-slate-900 dark:text-white">
+                    <h3 className="text-start">
+                    Lançamento: {movie?.classification}
+                    </h3>
+                  </Item>
+                </Grid>
               </div>
+   
             </Grid>
           </Grid>
         </Box>
@@ -163,6 +177,7 @@ export function Details() {
           </div>
         </div>
       </section>
+      <Recomendations />
     </main>
   );
 }
