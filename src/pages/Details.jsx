@@ -19,7 +19,7 @@ export function Details() {
 
   const { id } = useParams();
 
-  useEffect(() =>  {
+  useEffect(() => {
     const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${APIkey}&language=pt-BR&append_to_response=videos`;
     fetch(url).then((res) =>
       res.json().then((data) => {
@@ -76,12 +76,18 @@ export function Details() {
                 Sinopse
               </h1>
               <Item className="dark:bg-slate-900 dark:text-white">
-                {movie?.sinopse}
+                {movie?.sinopse ? movie?.sinopse : "Sinopse indisponível"}
               </Item>
               <Item className="dark:bg-slate-900 lg:hidden">
-                <BsArrowDownCircle size={50} className="text-white m-auto p-3 animate-bounce" />
+                <BsArrowDownCircle
+                  size={50}
+                  className="text-white m-auto p-3 animate-bounce"
+                />
                 <Button>
-                  <a href={`https://www.youtube.com/watch?v=${movie?.video}`} target="_blank">
+                  <a
+                    href={`https://www.youtube.com/watch?v=${movie?.video}`}
+                    target="_blank"
+                  >
                     Trailer
                   </a>
                 </Button>
@@ -127,14 +133,20 @@ export function Details() {
                 <Grid>
                   <Item className="dark:bg-slate-900 dark:text-white">
                     <h3 className="text-start">
-                      Produzido por: {movie?.production_companies[0]?.name ? movie?.production_companies[0]?.name : "Não informado"}
+                      Produzido por:{" "}
+                      {movie?.production_companies[0]?.name
+                        ? movie?.production_companies[0]?.name
+                        : "Não informado"}
                     </h3>
                   </Item>
                 </Grid>
                 <Grid>
                   <Item className="dark:bg-slate-900 dark:text-white">
                     <h3 className="text-start">
-                      Pais: {movie?.production_countries[0]?.name ? movie?.production_countries[0].name : "Não informado"}
+                      Pais:{" "}
+                      {movie?.production_countries[0]?.name
+                        ? movie?.production_countries[0].name
+                        : "Não informado"}
                     </h3>
                   </Item>
                 </Grid>
@@ -148,19 +160,21 @@ export function Details() {
                 <Grid>
                   <Item className="dark:bg-slate-900 dark:text-white">
                     <h3 className="text-start">
-                      Genero: {movie?.genres[0]?.name ? movie?.genres[0].name : "Não informado"}
+                      Genero:{" "}
+                      {movie?.genres[0]?.name
+                        ? movie?.genres[0].name
+                        : "Não informado"}
                     </h3>
                   </Item>
                 </Grid>
                 <Grid>
                   <Item className="dark:bg-slate-900 dark:text-white">
                     <h3 className="text-start">
-                    Lançamento: {movie?.classification}
+                      Lançamento: {movie?.classification}
                     </h3>
                   </Item>
                 </Grid>
               </div>
-   
             </Grid>
           </Grid>
         </Box>

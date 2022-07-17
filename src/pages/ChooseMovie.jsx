@@ -13,6 +13,11 @@ import Box from "@mui/material/Box";
 
 
 export function ChooseMovie() {
+
+  function backToTop() {
+    window.scrollTo(0, 0);
+  }
+
   const [movie, setMovie] = useState([]);
   const image_path = "https://image.tmdb.org/t/p/w500";
 
@@ -63,7 +68,7 @@ export function ChooseMovie() {
           </CardContent>
           <CardActions className="dark:bg-slate-700 flex self-end">
             <Link to={`/details/${randomMovie.id}`}>
-              <Button size="small">Learn More</Button>
+              <Button size="small" onClick={backToTop}>Learn More</Button>
             </Link>
           </CardActions>
         </Card>
