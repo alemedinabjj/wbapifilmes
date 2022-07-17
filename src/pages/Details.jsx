@@ -127,14 +127,14 @@ export function Details() {
                 <Grid>
                   <Item className="dark:bg-slate-900 dark:text-white">
                     <h3 className="text-start">
-                      Produzido por: {movie?.production_companies[0]?.name}
+                      Produzido por: {movie?.production_companies[0]?.name ? movie?.production_companies[0]?.name : "Não informado"}
                     </h3>
                   </Item>
                 </Grid>
                 <Grid>
                   <Item className="dark:bg-slate-900 dark:text-white">
                     <h3 className="text-start">
-                      Pais: {movie?.production_countries[0].name}
+                      Pais: {movie?.production_countries[0]?.name ? movie?.production_countries[0].name : "Não informado"}
                     </h3>
                   </Item>
                 </Grid>
@@ -148,7 +148,7 @@ export function Details() {
                 <Grid>
                   <Item className="dark:bg-slate-900 dark:text-white">
                     <h3 className="text-start">
-                      Genero: {movie?.genres[0].name}
+                      Genero: {movie?.genres[0]?.name ? movie?.genres[0].name : "Não informado"}
                     </h3>
                   </Item>
                 </Grid>

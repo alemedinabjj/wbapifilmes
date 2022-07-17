@@ -21,6 +21,10 @@ export function Search() {
   const [movies, setMovies] = useState([])
   const query = searchParams.get('q')
 
+  function backToTop() {
+    window.scrollTo(0, 0);
+  }
+
   useEffect(() => {
     const url = `${searchURL}?${apiKey}&query=${query}`
     fetch(url)
@@ -58,7 +62,7 @@ export function Search() {
             </CardContent>
             <CardActions>
               <Link to={`/details/${movie.id}`}>
-              <Button size="small">Learn More</Button>
+              <Button size="small" onClick={backToTop}>Learn More</Button>
               </Link>
               
             </CardActions>

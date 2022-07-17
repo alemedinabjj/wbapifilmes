@@ -14,6 +14,10 @@ import Box from "@mui/material/Box";
 export function Home() {
   const [movies, setMovies] = useState([]);
   const image_path = "https://image.tmdb.org/t/p/w500";
+  
+  function backToTop() {
+    window.scrollTo(0, 0);
+  }
 
   useEffect(() => {
     const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${APIkey}&language=pt-BR&page=1`;
@@ -55,7 +59,7 @@ export function Home() {
               </CardContent>
               <CardActions className="dark:bg-slate-700 flex self-end">
                 <Link to={`/details/${movie.id}`}>
-                  <Button size="small">Learn More</Button>
+                  <Button size="small" onClick={backToTop}>Learn More</Button>
                 </Link>
               </CardActions>
             </Card>
