@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import Chip from "@mui/material/Chip";
 import ReactPlayer from "react-player";
+import { BsArrowDownCircle } from "react-icons/bs";
 
 export function Details() {
   const [movie, setMovie] = useState();
@@ -77,6 +78,7 @@ export function Details() {
                 {movie?.sinopse}
               </Item>
               <Item className="dark:bg-slate-900 lg:hidden">
+                <BsArrowDownCircle size={50} className="text-white m-auto p-3 animate-bounce" />
                 <Button>
                   <a href={`https://www.youtube.com/watch?v=${movie?.video}`} target="_blank">
                     Trailer
@@ -150,7 +152,7 @@ export function Details() {
         </Box>
         <div className="flex flex-row justify-between items-end ">
           <Stack>
-            <Rating name="size-large" defaultValue={2} size="large" />
+            <Rating name="size-large" defaultValue={2} value={5} size="large" />
           </Stack>
           <div className="flex justify-end pt-5">
             <Link to="/">
