@@ -22,10 +22,15 @@ export function Recomendations() {
 
   const [recomendations, setRecomendations] = useState([]);
   useEffect(() => {
-    const url = `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${APIkey}&language=pt-BR&page=1&max_results=5`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setRecomendations(data.results));
+    const fetchData = async () => {
+      const url =
+        await `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${APIkey}&language=pt-BR&page=1&max_results=5`;
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => setRecomendations(data.results));
+    };
+
+    fetchData();
   }, []);
 
   return (
@@ -60,7 +65,7 @@ export function Recomendations() {
                 </Typography>
                 <Typography gutterBottom variant="h5" component="div">
                   <div className="flex items-center gap-2 justify-start">
-                    <FaStar color="yellow" /> {movie.vote_average}
+                    <FaStar color="yellow" /> {movie.vote_average.toFixed(1)}
                   </div>
                 </Typography>
               </CardContent>

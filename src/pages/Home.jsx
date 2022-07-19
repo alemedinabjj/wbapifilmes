@@ -20,10 +20,14 @@ export function Home() {
   }
 
   useEffect(() => {
-    const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${APIkey}&language=pt-BR&page=1`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setMovies(data.results));
+    const fetchData = async () => {
+      const url =
+        await `https://api.themoviedb.org/3/movie/now_playing?api_key=${APIkey}&language=pt-BR&page=1`;
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => setMovies(data.results));
+    };
+    fetchData();
   }, []);
 
   return (

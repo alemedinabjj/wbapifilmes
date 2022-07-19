@@ -19,28 +19,35 @@ export function Details() {
 
   const { id } = useParams();
 
+  const [value, setValue] = useState(0);
+
   useEffect(() => {
-    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${APIkey}&language=pt-BR&append_to_response=videos`;
-    fetch(url).then((res) =>
-      res.json().then((data) => {
-        const movie = {
-          id,
-          classification: data.release_date.substring(0, 4),
-          genres: data.genres,
-          video: data.videos.results[0]?.key,
-          production_countries: data.production_countries,
-          original_title: data.original_title,
-          production_companies: data.production_companies,
-          status: data.status,
-          runtime: data.runtime,
-          tagline: data.tagline,
-          title: data.title,
-          sinopse: data.overview,
-          image: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
-        };
-        setMovie(movie);
-      })
-    );
+    const fetchData = async () => {
+      const url =
+        await `https://api.themoviedb.org/3/movie/${id}?api_key=${APIkey}&language=pt-BR&append_to_response=videos`;
+      fetch(url).then((res) =>
+        res.json().then((data) => {
+          const movie = {
+            id,
+            classification: data.release_date.substring(0, 4),
+            genres: data.genres,
+            video: data.videos.results[0]?.key,
+            production_countries: data.production_countries,
+            original_title: data.original_title,
+            production_companies: data.production_companies,
+            status: data.status,
+            runtime: data.runtime,
+            tagline: data.tagline,
+            title: data.title,
+            sinopse: data.overview,
+            image: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
+          };
+          setMovie(movie);
+        })
+      );
+    };
+
+    fetchData();
   }, [id]);
 
   const Item = styled(Paper)(({ theme }) => ({
@@ -180,7 +187,15 @@ export function Details() {
         </Box>
         <div className="flex flex-row justify-between items-end ">
           <Stack>
-            <Rating name="size-large" defaultValue={2} value={5} size="large" />
+            <Rating
+              name="size-large"
+              defaultValue={2}
+              value={value}
+              onChange={(event, newValue) => {
+                setValue(newValue);
+              }}
+              size="large"
+            />
           </Stack>
           <div className="flex justify-end pt-5">
             <Link to="/">
