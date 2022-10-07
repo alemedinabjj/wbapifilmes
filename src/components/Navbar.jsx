@@ -3,8 +3,13 @@ import { SearchBar } from "./SearchBar";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { DarkModeButton } from "./DarkModeButton";
+import { FaStar } from "react-icons/fa";
+import { useContext } from "react";
+import { FavoriteContext } from "../hooks/FavoriteContext";
 
 export function Navbar() {
+  const { favorites } = useContext(FavoriteContext);
+
   const clickTop = () => {
     window.scrollTo(0, 0);
   };
@@ -44,7 +49,13 @@ export function Navbar() {
             <Stack direction="row" spacing={2}>
               <Button>
                 <h1 className="text-sm" onClick={clickTop}>
-                  Favorites
+                  <div className="flex items-center gap-1">
+                    <p>Favorites</p>
+                    <div className="relative">
+                      <FaStar className="text-yellow-400" size="1.8rem" />
+                      <p className="text-xs text-slate-900 absolute top-2 right-2">{favorites.length}</p>
+                    </div>
+                  </div>
                 </h1>
               </Button>
             </Stack>
