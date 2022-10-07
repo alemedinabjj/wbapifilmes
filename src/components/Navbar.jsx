@@ -32,6 +32,13 @@ export function Navbar() {
               </Button>
             </Stack>
           </Link>
+          <Link to={`/favorites`}>
+            <Stack direction="row" spacing={2}>
+              <Button>
+                <h1 className="text-sm">Favorites</h1>
+              </Button>
+            </Stack>
+          </Link>
         </ul>
       </div>
       <div className="flex items-center pt-5 sm:pt-0 gap-2">
