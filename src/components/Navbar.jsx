@@ -15,7 +15,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="w-full fixed top-0 left-0 z-10 flex flex-col sm:flex-row items-center justify-between p-5 bg-gray-100 dark:bg-slate-900">
+    <nav className="w-full sticky top-0 left-0 z-10 flex flex-col sm:flex-row items-center justify-between p-5 bg-gray-100 dark:bg-slate-900">
       <div className="sm:flex sm:justify-between items-center">
         <ul className="flex gap-5 justify-center items-center">
           <Link to={`/`}>

@@ -41,6 +41,21 @@ export function Details() {
             title: data.title,
             sinopse: data.overview,
             image: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
+            rating: data.vote_average,
+
+            backdrop_path: `https://image.tmdb.org/t/p/w500${data.backdrop_path}`,
+
+            popularity: data.popularity,
+
+            release_date: data.release_date,
+
+            revenue: data.revenue,
+            budget: data.budget,
+            original_language: data.original_language,
+            homepage: data.homepage,
+            imdb_id: data.imdb_id,
+            adult: data.adult,
+            spoken_languages: data.spoken_languages,
           };
           setMovie(movie);
         })
@@ -71,6 +86,21 @@ export function Details() {
               >
                 <div className="flex items-center justify-center">
                   <img src={movie?.image} alt={movie?.title} className="w-80" />
+                </div>
+              </Item>
+
+              <Item
+                sx={{
+                  backgroundColor: "primary.dark",
+                }}
+
+                // className="flex items-center justify-center"
+              >
+                <div className="flex items-center justify-center">
+                  <Stack spacing={1}>
+                    <Rating name="read-only" value={movie?.rating / 2} precision={0.5} readOnly />
+                    <p className="text-white">{movie?.rating ? `${movie?.rating.toFixed(1)} de 10` : "Sem avaliação"}</p>
+                  </Stack>
                 </div>
               </Item>
             </Grid>
@@ -146,6 +176,51 @@ export function Details() {
                     <h3 className="text-start">Lançamento: {movie?.classification}</h3>
                   </Item>
                 </Grid>
+                <Grid>
+                  <Item className="dark:bg-slate-900 dark:text-white">
+                    <h3 className="text-start">Idioma: {movie?.spoken_languages[0]?.name ? movie?.spoken_languages[0].name : "Não informado"}</h3>
+                  </Item>
+                </Grid>
+
+                <Grid>
+                  <Item className="dark:bg-slate-900 dark:text-white">
+                    <h3 className="text-start">
+                      Orçamento:{" "}
+                      {movie?.budget
+                        ? movie?.budget.toLocaleString("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          })
+                        : "Não informado"}
+                    </h3>
+                  </Item>
+                </Grid>
+                <Grid>
+                  <Item className="dark:bg-slate-900 dark:text-white">
+                    <h3 className="text-start">
+                      Receita:{" "}
+                      {movie?.revenue
+                        ? movie?.revenue.toLocaleString("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          })
+                        : "Não informado"}
+                    </h3>
+                  </Item>
+                </Grid>
+                <Grid>
+                  <Item className="dark:bg-slate-900 dark:text-white">
+                    <h3 className="text-start">
+                      Lucro:{" "}
+                      {movie?.revenue
+                        ? (movie?.revenue - movie?.budget).toLocaleString("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          })
+                        : "Não informado"}
+                    </h3>
+                  </Item>
+                </Grid>
               </div>
             </Grid>
           </Grid>
@@ -163,11 +238,15 @@ export function Details() {
             />
           </Stack>
           <div className="flex justify-end pt-5">
-            <Link to="/">
-              <Button variant="contained" size="large">
-                BACK
-              </Button>
-            </Link>
+            <Button
+              variant="contained"
+              size="large"
+              onClick={() => {
+                window.history.back();
+              }}
+            >
+              BACK
+            </Button>
           </div>
         </div>
       </section>

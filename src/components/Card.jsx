@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
+import { Rating } from "@mui/material";
 
 export const CardMovie = ({ movie }) => {
   const { addFavorite, removeFavorite, isFavorite } = useContext(FavoriteContext);
@@ -47,8 +48,8 @@ export const CardMovie = ({ movie }) => {
       <CardContent className="dark:bg-slate-900 dark:text-white h-full">
         <Typography gutterBottom variant="h5" component="div" className="flex h-20 items-start justify-between">
           {movie.title.length > 15 ? movie.title.substring(0, 15) + "..." : movie.title}
-          <div className="flex items-center gap-2 justify-start">
-            <FaStar color="yellow" /> {movie.vote_average}
+          <div className="flex items-center gap-1 justify-start">
+            <Rating name="read-only" value={movie?.vote_average / 2} precision={0.5} readOnly /> {movie.vote_average}
           </div>
         </Typography>
       </CardContent>
