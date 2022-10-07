@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { APIkey } from "../config/key.js";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -14,6 +13,8 @@ import ReactPlayer from "react-player";
 import { BsArrowDownCircle } from "react-icons/bs";
 import { Recomendations } from "./Recomendations.jsx";
 
+const APIkey = import.meta.env.VITE_API_KEY;
+
 export function Details() {
   const [movie, setMovie] = useState();
 
@@ -23,8 +24,7 @@ export function Details() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url =
-        await `https://api.themoviedb.org/3/movie/${id}?api_key=${APIkey}&language=pt-BR&append_to_response=videos`;
+      const url = await `https://api.themoviedb.org/3/movie/${id}?${APIkey}&language=pt-BR&append_to_response=videos`;
       fetch(url).then((res) =>
         res.json().then((data) => {
           const movie = {
@@ -62,11 +62,7 @@ export function Details() {
     <main className="dark:bg-slate-800 ">
       <section className="p-5 flex flex-col">
         <Box sx={{ flexGrow: 1 }}>
-          <Grid
-            container
-            spacing={{ xs: 2, sm: 1, md: 4 }}
-            columns={{ xs: 1, md: 12 }}
-          >
+          <Grid container spacing={{ xs: 2, sm: 1, md: 4 }} columns={{ xs: 1, md: 12 }}>
             <Grid item xs={4}>
               <Item
                 sx={{
@@ -79,22 +75,12 @@ export function Details() {
               </Item>
             </Grid>
             <Grid item xs={8}>
-              <h1 className="text-3xl text-center pb-10 dark:text-white">
-                Sinopse
-              </h1>
-              <Item className="dark:bg-slate-900 dark:text-white">
-                {movie?.sinopse ? movie?.sinopse : "Sinopse indisponível"}
-              </Item>
+              <h1 className="text-3xl text-center pb-10 dark:text-white">Sinopse</h1>
+              <Item className="dark:bg-slate-900 dark:text-white">{movie?.sinopse ? movie?.sinopse : "Sinopse indisponível"}</Item>
               <Item className="dark:bg-slate-900 lg:hidden">
-                <BsArrowDownCircle
-                  size={50}
-                  className="text-white m-auto p-3 animate-bounce"
-                />
+                <BsArrowDownCircle size={50} className="text-white m-auto p-3 animate-bounce" />
                 <Button>
-                  <a
-                    href={`https://www.youtube.com/watch?v=${movie?.video}`}
-                    target="_blank"
-                  >
+                  <a href={`https://www.youtube.com/watch?v=${movie?.video}`} target="_blank">
                     Trailer
                   </a>
                 </Button>
@@ -117,11 +103,7 @@ export function Details() {
               <div className="flex flex-col gap-5">
                 <Item className="dark:bg-slate-900 dark:text-white">
                   <div className="flex gap-5 items-center justify-center">
-                    {movie?.status === "Released" ? (
-                      <Chip label="Postado" color="success" />
-                    ) : (
-                      <Chip label="Em produçao" color="primary" />
-                    )}
+                    {movie?.status === "Released" ? <Chip label="Postado" color="success" /> : <Chip label="Em produçao" color="primary" />}
                   </div>
                 </Item>
                 <Item className="dark:bg-slate-900">
@@ -132,53 +114,36 @@ export function Details() {
               <div className="flex flex-col gap-3 mt-3">
                 <Grid>
                   <Item className="dark:bg-slate-900 dark:text-white">
+                    <h3 className="text-start">Duraçao: {movie?.runtime} Minutos.</h3>
+                  </Item>
+                </Grid>
+                <Grid>
+                  <Item className="dark:bg-slate-900 dark:text-white">
                     <h3 className="text-start">
-                      Duraçao: {movie?.runtime} Minutos.
+                      Produzido por: {movie?.production_companies[0]?.name ? movie?.production_companies[0]?.name : "Não informado"}
                     </h3>
                   </Item>
                 </Grid>
                 <Grid>
                   <Item className="dark:bg-slate-900 dark:text-white">
                     <h3 className="text-start">
-                      Produzido por:{" "}
-                      {movie?.production_companies[0]?.name
-                        ? movie?.production_companies[0]?.name
-                        : "Não informado"}
+                      Pais: {movie?.production_countries[0]?.name ? movie?.production_countries[0].name : "Não informado"}
                     </h3>
                   </Item>
                 </Grid>
                 <Grid>
                   <Item className="dark:bg-slate-900 dark:text-white">
-                    <h3 className="text-start">
-                      Pais:{" "}
-                      {movie?.production_countries[0]?.name
-                        ? movie?.production_countries[0].name
-                        : "Não informado"}
-                    </h3>
+                    <h3 className="text-start">Titulo original: {movie?.original_title}</h3>
                   </Item>
                 </Grid>
                 <Grid>
                   <Item className="dark:bg-slate-900 dark:text-white">
-                    <h3 className="text-start">
-                      Titulo original: {movie?.original_title}
-                    </h3>
+                    <h3 className="text-start">Genero: {movie?.genres[0]?.name ? movie?.genres[0].name : "Não informado"}</h3>
                   </Item>
                 </Grid>
                 <Grid>
                   <Item className="dark:bg-slate-900 dark:text-white">
-                    <h3 className="text-start">
-                      Genero:{" "}
-                      {movie?.genres[0]?.name
-                        ? movie?.genres[0].name
-                        : "Não informado"}
-                    </h3>
-                  </Item>
-                </Grid>
-                <Grid>
-                  <Item className="dark:bg-slate-900 dark:text-white">
-                    <h3 className="text-start">
-                      Lançamento: {movie?.classification}
-                    </h3>
+                    <h3 className="text-start">Lançamento: {movie?.classification}</h3>
                   </Item>
                 </Grid>
               </div>

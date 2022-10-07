@@ -1,9 +1,9 @@
-import { APIkey } from "../config/key.js";
 import { useState, useEffect, useRef } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
+
 import { CardMovie } from "../components/Card.jsx";
 import { useCallback } from "react";
+
+const APIkey = import.meta.env.VITE_API_KEY;
 
 export function Home() {
   const [movies, setMovies] = useState([]);
@@ -11,25 +11,13 @@ export function Home() {
 
   const moreMovies = useRef();
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const url = await `https://api.themoviedb.org/3/movie/now_playing?api_key=${APIkey}&language=pt-BR&page=${page}`;
-  //     fetch(url)
-  //       .then((res) => res.json())
-  //       .then((data) => setMovies(data.results));
-  //   };
-  //   fetchData();
-  // }, []);
-
-  //scroll metade da pagina
-
   useEffect(() => {
     moreMoviesHandler();
   }, []);
 
   const moreMoviesHandler = useCallback(async () => {
-    const url = await `https://api.themoviedb.org/3/movie/now_playing?api_key=${APIkey}&language=pt-BR&page=${page}`;
-    fetch(url)
+    const url = `https://api.themoviedb.org/3/movie/now_playing?${APIkey}&language=pt-BR&page=${page}`;
+    await fetch(url)
       .then((res) => res.json())
       .then((data) => setMovies([...movies, ...data.results]));
     setPage(page + 1);

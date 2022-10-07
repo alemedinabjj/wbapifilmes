@@ -1,30 +1,19 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { APIkey } from "../config/key.js";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { Link } from "react-router-dom";
-import { FaStar } from "react-icons/fa";
+
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
+import { CardMovie } from "../components/Card.jsx";
+
+const APIkey = import.meta.env.VITE_API_KEY;
 
 export function Recomendations() {
-  function backToTop() {
-    window.scrollTo(0, 0);
-  }
-
   const { id } = useParams();
-  const image_path = "https://image.tmdb.org/t/p/w500";
 
   const [recomendations, setRecomendations] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const url =
-        await `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${APIkey}&language=pt-BR&page=1&max_results=5`;
+      const url = await `https://api.themoviedb.org/3/movie/${id}/recommendations?${APIkey}&language=pt-BR&page=1&max_results=5`;
       fetch(url)
         .then((res) => res.json())
         .then((data) => setRecomendations(data.results));
@@ -47,37 +36,7 @@ export function Recomendations() {
               </div>
             );
           }
-          return (
-            <Card
-              sx={{ maxWidth: 245 }}
-              className="m-5 dark:bg-slate-700"
-              key={movie.id}
-            >
-              <CardMedia
-                component="img"
-                alt={movie.title}
-                height="140"
-                image={image_path + movie.poster_path}
-              />
-              <CardContent className="dark:bg-slate-900 dark:text-white">
-                <Typography gutterBottom variant="h5" component="div">
-                  {movie.title}
-                </Typography>
-                <Typography gutterBottom variant="h5" component="div">
-                  <div className="flex items-center gap-2 justify-start">
-                    <FaStar color="yellow" /> {movie.vote_average.toFixed(1)}
-                  </div>
-                </Typography>
-              </CardContent>
-              <CardActions className="dark:bg-slate-700 flex self-end">
-                <Link to={`/details/${movie.id}`}>
-                  <Button size="small" onClick={backToTop}>
-                    Learn More
-                  </Button>
-                </Link>
-              </CardActions>
-            </Card>
-          );
+          return <CardMovie movie={movie} />;
         })}
       </section>
     </main>

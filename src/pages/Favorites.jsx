@@ -4,7 +4,6 @@ import { CardMovie } from "../components/Card";
 
 export const Favorites = () => {
   const { favorites, removeFavorite } = useContext(FavoriteContext);
-  const image_path = "https://image.tmdb.org/t/p/w500";
 
   return (
     <main className="dark:bg-slate-800 min-h-screen">

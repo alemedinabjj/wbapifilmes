@@ -33,7 +33,7 @@ export const CardMovie = ({ movie }) => {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }} className="m-5 dark:bg-slate-700 relative" key={movie.id}>
+    <Card sx={{ maxWidth: 405 }} className="m-5 dark:bg-slate-700 relative" key={movie.id}>
       <CardMedia component="img" alt={movie.title} height="140" image={image_path + movie.poster_path} />
       <CardContent className="dark:bg-slate-900 dark:text-white h-full">
         <Typography gutterBottom variant="h5" component="div" className="flex h-20 items-start justify-between">
@@ -45,8 +45,8 @@ export const CardMovie = ({ movie }) => {
       </CardContent>
       <CardActions className="dark:bg-slate-700 flex self-end justify-between items-center w-full absolute bottom-0 ">
         <Link to={`/details/${movie.id}`}>
-          <Button size="small" onClick={backToTop}>
-            Learn More
+          <Button size="small" onClick={backToTop} className="dark:text-white dark:border dark:border-white">
+            Detalhes do filme
           </Button>
         </Link>
         <Button variant="contained" size="small" onClick={handleFavorite} className="transition">
