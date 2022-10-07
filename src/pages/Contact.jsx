@@ -10,21 +10,14 @@ export function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
     console.log("foi");
-    emailjs
-      .sendForm(
-        "service_r0o8v59",
-        "template_zmzm4dj",
-        form.current,
-        "MgtiWpvmlm2X808Dd"
-      )
-      .then(
-        (result) => {
-          alert("mensagem enviada");
-        },
-        (error) => {
-          alert("algum erro");
-        }
-      );
+    emailjs.sendForm("service_r0o8v59", "template_zmzm4dj", form.current, "MgtiWpvmlm2X808Dd").then(
+      (result) => {
+        alert("mensagem enviada");
+      },
+      (error) => {
+        alert("algum erro");
+      }
+    );
 
     e.target.reset();
   };
@@ -43,20 +36,9 @@ export function Contact() {
           noValidate
           autoComplete="off"
         >
-          <TextField
-            id="filled-basic"
-            label="name"
-            variant="filled"
-            className="dark:placeholder-white"
-          />
-          <TextField id="filled-basic" label="email" variant="filled" />
-          <TextField
-            id="outlined-multiline-static"
-            label="message"
-            multiline
-            rows={9}
-            placeholder="Digite sua Mensagem."
-          />
+          <TextField id="filled-basic" label="name" name="name" variant="filled" className="dark:placeholder-white dark:text-white" />
+          <TextField id="filled-basic" label="email" name="email" variant="filled" />
+          <TextField id="outlined-multiline-static" label="message" name="message" multiline rows={9} placeholder="Digite sua Mensagem." />
           <Button type="submit" variant="contained" color="primary" fullWidth>
             Submit
           </Button>
