@@ -29,7 +29,7 @@ export const Banner = () => {
     fetchData();
   }, []);
 
-  const image_path = import.meta.env.VITE_IMG_BANNER;
+  const image_path = "https://image.tmdb.org/t/p/original";
 
   return (
     <div className="md:w-full md:h-[500px] md:relative md:pt-5 md:block hidden">
