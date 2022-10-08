@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-
+import { Banner } from "../components/Banner.jsx";
 import { CardMovie } from "../components/Card.jsx";
 import { useCallback } from "react";
 
@@ -16,7 +16,7 @@ export function Home() {
   }, []);
 
   const moreMoviesHandler = useCallback(async () => {
-    const url = `https://api.themoviedb.org/3/movie/now_playing?${APIkey}&language=pt-BR&page=${page}`;
+    const url = `https://api.themoviedb.org/3/trending/all/week?${APIkey}&language=pt-BR&page=${page}`;
     await fetch(url)
       .then((res) => res.json())
       .then((data) => setMovies([...movies, ...data.results]));
@@ -42,6 +42,7 @@ export function Home() {
     <>
       {" "}
       <main className="dark:bg-slate-800 min-h-screen">
+        <Banner movie={movies} />
         <div className="flex flex-col justify-center items-center">
           <section className="grid justify-center sm:grid-cols-2 md:grid-cols-4 ">
             {movies.map((movie) => {

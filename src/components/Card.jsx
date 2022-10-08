@@ -47,14 +47,15 @@ export const CardMovie = ({ movie }) => {
       <CardMedia component="img" alt={movie.title} height="140" image={image_path + movie.poster_path} />
       <CardContent className="dark:bg-slate-900 dark:text-white h-full">
         <Typography gutterBottom variant="h5" component="div" className="flex h-20 items-start justify-between">
-          {movie.title.length > 15 ? movie.title.substring(0, 15) + "..." : movie.title}
+          {movie.title?.length > 15 ? movie.title?.substring(0, 15) + "..." : movie?.title}
+
           <div className="flex items-center gap-1 justify-start">
             <Rating name="read-only" value={movie?.vote_average / 2} precision={0.5} readOnly /> {movie.vote_average}
           </div>
         </Typography>
       </CardContent>
       <CardActions className="dark:bg-slate-700 flex self-end justify-between items-center w-full absolute bottom-0 ">
-        <Link to={`/details/${movie.id}`}>
+        <Link to={`/details/${movie?.media_type}/${movie.id}`}>
           <Button size="small" onClick={backToTop} className="dark:text-white dark:border dark:border-white">
             Detalhes do filme
           </Button>

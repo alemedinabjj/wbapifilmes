@@ -8,13 +8,13 @@ import { CardMovie } from "../components/Card.jsx";
 const APIkey = import.meta.env.VITE_API_KEY;
 
 export function Recomendations() {
-  const { id } = useParams();
+  const { id, type } = useParams();
 
   const [recomendations, setRecomendations] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const url = await `https://api.themoviedb.org/3/movie/${id}/recommendations?${APIkey}&language=pt-BR&page=1&max_results=5`;
-      fetch(url)
+      const url = `https://api.themoviedb.org/3/${type ? type : "Erro"}/${id}/recommendations?${APIkey}&language=pt-BR&page=1&max_results=5`;
+      await fetch(url)
         .then((res) => res.json())
         .then((data) => setRecomendations(data.results));
     };

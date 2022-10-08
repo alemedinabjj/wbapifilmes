@@ -7,7 +7,6 @@ import Grid from "@mui/material/Grid";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
 import Chip from "@mui/material/Chip";
 import ReactPlayer from "react-player";
 import { BsArrowDownCircle } from "react-icons/bs";
@@ -18,18 +17,18 @@ const APIkey = import.meta.env.VITE_API_KEY;
 export function Details() {
   const [movie, setMovie] = useState();
 
-  const { id } = useParams();
+  const { id, type } = useParams();
 
   const [value, setValue] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = await `https://api.themoviedb.org/3/movie/${id}?${APIkey}&language=pt-BR&append_to_response=videos`;
+      const url = await `https://api.themoviedb.org/3/${type ? type : "Erro"}/${id}?${APIkey}&language=pt-BR&append_to_response=videos`;
       fetch(url).then((res) =>
         res.json().then((data) => {
           const movie = {
             id,
-            classification: data.release_date.substring(0, 4),
+            classification: data.release_date?.substring(0, 4),
             genres: data.genres,
             video: data.videos.results[0]?.key,
             production_countries: data.production_countries,
