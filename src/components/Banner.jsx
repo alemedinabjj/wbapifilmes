@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper";
 import { Link } from "react-router-dom";
 import { Rating } from "@mui/material";
+
+import { FavoriteContext } from "../hooks/FavoriteContext";
 
 // Import Swiper styles
 import "swiper/css";
@@ -12,12 +14,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import "../styles/global.css";
+import { FaStar } from "react-icons/fa";
 
 // import required modules
 
 export const Banner = () => {
   const [movies, setMovies] = useState([]);
   const APIkey = import.meta.env.VITE_API_KEY;
+
+  const { favorites } = useContext(FavoriteContext);
 
   const fetchData = async () => {
     const url = `https://api.themoviedb.org/3/trending/all/week?${APIkey}&language=pt-BR`;
@@ -52,6 +57,17 @@ export const Banner = () => {
           return (
             <>
               <SwiperSlide>
+                <div>
+                  <span>
+                    {favorites.find((fav) => fav.id === movie.id) ? (
+                      <p className="absolute top-2 right-2 text-2xl text-white">
+                        <FaStar size="2rem" color="yellow" />
+                      </p>
+                    ) : (
+                      ""
+                    )}
+                  </span>
+                </div>
                 <img src={`${image_path}${movie.backdrop_path}`} alt={movie.title} className="w-full h-fit object-cover" />
 
                 <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
@@ -79,29 +95,3 @@ export const Banner = () => {
     </div>
   );
 };
-
-// {movie.map((movie) => {
-//     return <img src={image_path + movie.backdrop_path} alt={movie?.title} className="w-full h-full object-cover" />;
-//   })}
-
-// {movie.map((movie) => {
-//     return (
-//       <div className="w-full h-full absolute top-0 left-0 z-0">
-//         <img src={image_path + movie?.backdrop_path} alt={movie?.title} className="w-full h-full object-cover" />
-
-//         <div className="w-full h-full absolute top-0 left-0 z-10 bg-gradient-to-b from-transparent to-black" />
-
-//         <div className="w-full h-full absolute top-0 left-0 z-20 flex items-center justify-center">
-//           <div className="w-1/2 h-full flex flex-col items-center justify-center">
-//             <div className="w-full h-1/2 flex items-center justify-center"></div>
-//             <div className="w-full h-1/2 flex flex-col items-center justify-center">
-//               <h1 className="text-4xl text-white font-bold">{movie?.title}</h1>
-//               <p className="text-white">{movie?.release_date}</p>
-//               <p className="text-white">{movie?.genres}</p>
-//               <p className="text-white">{movie?.overview}</p>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   })}

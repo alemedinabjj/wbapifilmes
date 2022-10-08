@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -20,6 +21,15 @@ export function Details() {
   const { id, type } = useParams();
 
   const [value, setValue] = useState(0);
+
+  const handleFavorite = () => {
+    if (isFavorite(movie)) {
+      removeFavorite(movie);
+    } else {
+      addFavorite(movie);
+    }
+    setFavorite(!favorite);
+  };
 
   useEffect(() => {
     const fetchData = async () => {

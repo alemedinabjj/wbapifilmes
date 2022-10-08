@@ -49,11 +49,10 @@ export function Navbar() {
             <Stack direction="row" spacing={2}>
               <Button>
                 <h1 className="text-sm" onClick={clickTop}>
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-2">
                     <p>Favorites</p>
-                    <div className="relative">
-                      <FaStar className="text-yellow-400" size="1.8rem" />
-                      <p className="text-xs text-slate-900 absolute top-2 right-2">{favorites.length}</p>
+                    <div className="flex items-center">
+                      <p className="text-base text-white">{favorites.length}</p>
                     </div>
                   </div>
                 </h1>

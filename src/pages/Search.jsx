@@ -15,7 +15,7 @@ export function Search() {
   }
 
   useEffect(() => {
-    const url = `${searchURL}?${apiKey}&query=${query}`;
+    const url = `https://api.themoviedb.org/3/search/multi?${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMovies(data.results));
