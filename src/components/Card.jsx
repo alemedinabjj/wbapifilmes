@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import { Rating } from "@mui/material";
+import { Box, Rating } from "@mui/material";
 
 export const CardMovie = ({ movie }) => {
   const { addFavorite, removeFavorite, isFavorite } = useContext(FavoriteContext);
@@ -46,18 +46,32 @@ export const CardMovie = ({ movie }) => {
       </div>
       <CardMedia component="img" alt={movie.title} height="140" image={image_path + movie.poster_path} />
       <CardContent className="dark:bg-slate-900 dark:text-white h-full">
+        <Box sx={{ display: "flex", alignItems: "center", pb: 1 }}>
+          <span className="bg-black px-4 py-2 rounded-xl text-white">{movie?.media_type === "movie" ? "Filme" : "Série"}</span>
+        </Box>
         <Typography gutterBottom variant="h5" component="div" className="flex h-20 items-start justify-between">
-          {movie.title?.length > 15 ? movie.title?.substring(0, 15) + "..." : movie?.title}
-
-          <div className="flex items-center gap-1 justify-start">
-            <Rating name="read-only" value={movie?.vote_average / 2} precision={0.5} readOnly /> {movie.vote_average}
+          <div className="flex w-full items-center justify-between">
+            {" "}
+            {movie?.media_type === "movie" ? (
+              <Typography gutterBottom variant="h5" component="div" className="text-base">
+                {movie?.title.length > 20 ? movie?.title.substring(0, 20) + "..." : movie?.title}
+              </Typography>
+            ) : (
+              <Typography gutterBottom variant="h5" component="div" className="text-base">
+                {movie?.name.length > 20 ? movie?.name.substring(0, 20) + "..." : movie?.name}
+              </Typography>
+            )}
+            <div className="flex items-center gap-1 justify-start">
+              <Rating name="read-only" value={movie?.vote_average / 2} precision={0.5} readOnly /> {movie.vote_average?.toFixed(1)}
+            </div>
           </div>
         </Typography>
       </CardContent>
       <CardActions className="dark:bg-slate-700 flex self-end justify-between items-center w-full absolute bottom-0 ">
         <Link to={`/details/${movie?.media_type}/${movie.id}`}>
           <Button size="small" onClick={backToTop} className="dark:text-white dark:border dark:border-white">
-            Detalhes do filme
+            Detalhes
+            {movie?.media_type ? (movie?.media_type === "movie" ? " do Filme" : " da Série") : ""}
           </Button>
         </Link>
         <Button variant="contained" size="small" onClick={handleFavorite} className="transition flex items-center gap-1">
