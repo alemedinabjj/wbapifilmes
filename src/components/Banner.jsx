@@ -68,7 +68,7 @@ export const Banner = () => {
                     )}
                   </span>
                 </div>
-                <img src={`${image_path}${movie.backdrop_path}`} alt={movie.title} className="w-full h-fit object-cover" />
+                <img src={`${image_path}${movie.backdrop_path}`} alt={movie.title || movie.name} className="w-full h-fit object-cover" />
 
                 <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center">
