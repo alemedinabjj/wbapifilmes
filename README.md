@@ -1,18 +1,18 @@
 <h1 align="center">
-  Turtle Movie 🎥
+  Web Films 🎥
 </h1>
 
 <br>
 
-![Resultado final do projeto](https://github.com/EvanderInacio/Turtle-Movie/blob/main/public/preview1.gif?raw=true)
-
+![Resultado final do projeto](https://i.imgur.com/ru28BQf.gif)
+![Resultado final do projeto](https://i.imgur.com/MTP8oV1.gif)
 <br>
 
 ## 📝 Descrição
 
-Website com listagem de filmes, series, atores da API TMDB.
+Website com listagem de filmes
 
-- site final: [turtle-movie.vercel.app](https://turtle-movie.vercel.app/)
+- site final: [wbapifilmes.vercel.app](https://wbapifilmes.vercel.app/)
 
 ## 🚀 Tecnologias
 
@@ -20,55 +20,39 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - ReactJS
 - React Router
-- Styled Components
+- TailwindCSS
 
 ## 📚 Bibliotecas
 
-- [Google Fonts](https://fonts.google.com/)
 - [React Icons](https://react-icons.github.io/react-icons/)
-- [Phosphor Icons](https://phosphoricons.com/)
 - [Material UI](https://mui.com/)
 
 ### Screenshot:
 
-| Series                                                                                                       | Pessoas                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| <img src="https://github.com/EvanderInacio/Turtle-Movie/blob/main/src/assets/series-popular.png?raw=true" /> | <img src="https://github.com/EvanderInacio/Turtle-Movie/blob/main/src/assets/person-popular.png?raw=true"  /> |
+| Home |
+| ---- |
 
-| Página Detalhes Filmes                                                                               | Página Detalhes Pessoa                                                                                      |
+| <img src="https://i.imgur.com/CgRIBJf.png" />
+
+| Página Detalhes Filmes                                                                               |
 | ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| <img src="https://github.com/EvanderInacio/Turtle-Movie/blob/main/src/assets/detail.png?raw=true" /> | <img src="https://github.com/EvanderInacio/Turtle-Movie/blob/main/src/assets/detail-person.png?raw=true" /> |
+| <img src="https://i.imgur.com/BikmMqj.png" />                                                        |                                                                                                             |
+| Página Detalhes Filmes                                                                               |
+| ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| <img src="https://i.imgur.com/wzyuCs6.png" />                                                        |
+| Página Favoritos Filmes                                                                              |
+| ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| <img src="https://i.imgur.com/omWpvbx.png" />                                                        |
 
-## 🔗 Links
-
-<p align="left">
- 
- <a href="https://www.linkedin.com/in/evander-inacio" alt="Linkedin">
-  <img src="https://img.shields.io/badge/-Linkedin-0A66C2?style=for-the-badge&logo=Linkedin&logoColor=FFFFFF&link=https://www.linkedin.com/in/evander-inacio"/> 
- </a>
- 
- <a href="https://www.facebook.com/evandder.lopes" alt="Facebook">
-  <img src="https://img.shields.io/badge/-Facebook-000dff?style=for-the-badge&logo=Facebook&logoColor=FFFFFF&link=https://www.facebook.com/evandder.lopes"/> 
- </a>
- 
- <a href="https://twitter.com/Evander_Inacio" alt="Twitter">
-  <img src="https://img.shields.io/badge/-Twitter-1DA1F2?style=for-the-badge&logo=Twitter&logoColor=FFFFFF&link=https://twitter.com/Evander_Inacio"/> 
- </a>
-
-  <a href="https://www.evanderinacio.com/" alt="Portfolio">
-  <img src="https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white&link=https://www.evanderinacio.com/"/>
- </a>
-
- </p>
- 
 ## 💻 Autor<br>
+
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/EvanderInacio">
-        <img src="https://avatars.githubusercontent.com/u/72362299?s=96&v=4" width="100px;" /><br>
+      <a href="https://github.com/alemedinabjj">
+        <img src="https://github.com/alemedinabjj.png" width="100px;" /><br>
         <sub>
-          <b>Evander Inácio</b>
+          <b>Alexandre Medina</b>
         </sub>
       </a>
     </td>
@@ -77,4 +61,4 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ---
 
-  <h3 align="center"> Developed by <a href="https://www.linkedin.com/in/evander-inacio/">Evander Inácio</a> ☕</h3>
+  <h3 align="center"> Developed by <a href="https://www.linkedin.com/in/alexandre-medina-a9259a148/">Alexandre Medina</a> ☕</h3>
