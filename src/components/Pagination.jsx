@@ -5,6 +5,7 @@ import Stack from "@mui/material/Stack";
 export default function BasicPagination({ setPage, page }) {
   const handleChange = (event, value) => {
     setPage(value);
+    window.scrollTo(0, 0);
   };
 
   return (

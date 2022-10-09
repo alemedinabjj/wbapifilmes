@@ -33,6 +33,10 @@ export const CardMovie = ({ movie }) => {
     setFavorite(!favorite);
   };
 
+  if (!movie) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Card sx={{ maxWidth: 405 }} className="m-5 dark:bg-slate-700 relative" key={movie.id}>
       <div
