@@ -2,12 +2,9 @@
   Web Films 🎥
 </h1>
 
-<br>
 
 ![Resultado final do projeto](https://i.imgur.com/ru28BQf.gif)
 ![Resultado final do projeto](https://i.imgur.com/MTP8oV1.gif)
-<br>
-
 ## 📝 Descrição
 
 Website com listagem de filmes
