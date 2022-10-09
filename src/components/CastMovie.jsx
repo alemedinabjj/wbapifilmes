@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 
 const APIkey = import.meta.env.VITE_API_KEY;
 
@@ -18,7 +20,7 @@ export const CastMovie = ({ id, type }) => {
   }, [id]);
 
   return (
-    <div className="flex flex-wrap items-center justify-between p-5">
+    <div className="flex flex-wrap items-center gap-4 justify-between p-5">
       {cast.map((cast) => {
         return (
           <div>
@@ -30,8 +32,14 @@ export const CastMovie = ({ id, type }) => {
               alt={cast.name}
               className="w-[300px]"
             />
-            <p>{cast.name}</p>
-            <p>{cast.character}</p>
+            <CardContent className="dark:bg-slate-900 dark:text-white h-full">
+              <Typography variant="h6" component="h2" className="font-bold">
+                {cast.name}
+              </Typography>
+              <Typography variant="body2" component="p" className="text-sm">
+                {cast.character}
+              </Typography>
+            </CardContent>
           </div>
         );
       })}
