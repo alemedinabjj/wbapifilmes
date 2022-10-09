@@ -12,6 +12,7 @@ import Chip from "@mui/material/Chip";
 import ReactPlayer from "react-player";
 import { BsArrowDownCircle } from "react-icons/bs";
 import { Recomendations } from "./Recomendations.jsx";
+import { CastMovie } from "../components/CastMovie.jsx";
 
 const APIkey = import.meta.env.VITE_API_KEY;
 
@@ -21,15 +22,6 @@ export function Details() {
   const { id, type } = useParams();
 
   const [value, setValue] = useState(0);
-
-  const handleFavorite = () => {
-    if (isFavorite(movie)) {
-      removeFavorite(movie);
-    } else {
-      addFavorite(movie);
-    }
-    setFavorite(!favorite);
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,6 +63,8 @@ export function Details() {
       );
     };
 
+    console.log(movie?.cast);
+
     fetchData();
   }, [id]);
 
@@ -102,8 +96,6 @@ export function Details() {
                 sx={{
                   backgroundColor: "primary.dark",
                 }}
-
-                // className="flex items-center justify-center"
               >
                 <div className="flex items-center justify-center">
                   <Stack spacing={1}>
@@ -136,6 +128,14 @@ export function Details() {
                     config={{ file: { forceHLS: true } }}
                   />
                 </Item>
+                <Grid className="mt-10">
+                  <Item className="dark:bg-slate-900 dark:text-white">
+                    <h1 className="text-3xl text-center pb-10">Elenco</h1>
+                  </Item>
+                  <div className="flex  max-h-[500px] overflow-auto">
+                    <CastMovie movie={movie} id={id} type={type} />
+                  </div>
+                </Grid>
               </Grid>
             </Grid>
             <Grid item xs={12} sm={4}>
@@ -233,6 +233,14 @@ export function Details() {
               </div>
             </Grid>
           </Grid>
+          {/* <Grid className="mt-10">
+            <Item className="dark:bg-slate-900 dark:text-white">
+              <h1 className="text-3xl text-center pb-10">Elenco</h1>
+            </Item>
+            <div className="flex  max-h-[500px] overflow-auto">
+              <CastMovie movie={movie} id={id} type={type} />
+            </div>
+          </Grid> */}
         </Box>
         <div className="flex flex-row justify-between items-end ">
           <Stack>
@@ -246,19 +254,19 @@ export function Details() {
               size="large"
             />
           </Stack>
-          <div className="flex justify-end pt-5">
-            <Button
-              variant="contained"
-              size="large"
-              onClick={() => {
-                window.history.back();
-              }}
-            >
-              BACK
-            </Button>
-          </div>
         </div>
       </section>
+      <div className="flex justify-end mt-32 pt-5">
+        <Button
+          variant="contained"
+          size="large"
+          onClick={() => {
+            window.history.back();
+          }}
+        >
+          BACK
+        </Button>
+      </div>
       <Recomendations />
     </main>
   );

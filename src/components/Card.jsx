@@ -48,7 +48,7 @@ export const CardMovie = ({ movie }) => {
           <FaStar className="text-yellow-400" size="2rem" />
         </span>
       </div>
-      <CardMedia component="img" alt={movie.title} height="140" image={image_path + movie.poster_path} />
+      <CardMedia component="img" alt={movie.title || movie.name} height="140" image={image_path + movie.poster_path} />
       <CardContent className="dark:bg-slate-900 dark:text-white h-full">
         <Box sx={{ display: "flex", alignItems: "center", pb: 1 }}>
           <span className="bg-black px-4 py-2 rounded-xl text-white">
