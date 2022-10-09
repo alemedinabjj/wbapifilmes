@@ -13,6 +13,8 @@ import { ChooseMovie } from "./pages/ChooseMovie";
 import { BtnTop } from "./components/BtnTop";
 import FavoriteProvider from "./hooks/FavoriteContext";
 import { Favorites } from "./pages/Favorites";
+import { Category } from "./pages/Category";
+import { Genres } from "./pages/Genres";
 
 function App() {
   return (
@@ -22,11 +24,13 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/details/:type/:id" element={<Details />} />
+            <Route path={`/details/:type/:id`} element={<Details />} />
             <Route path="/search" element={<Search />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/choose" element={<ChooseMovie />} />
             <Route path="/favorites" element={<Favorites />} />
+            <Route path="/category/movie/:category" element={<Category />} />
+            <Route path="/genres/movie/:id" element={<Genres />} />
           </Routes>
           <BtnTop />
           <Footer />

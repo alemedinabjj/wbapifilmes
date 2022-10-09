@@ -26,7 +26,7 @@ export function Recomendations() {
     <main className="dark:bg-slate-800 min-h-screen">
       <h1 className="text-3xl text-white text-center">Recomendados</h1>
       <section className="grid justify-center sm:grid-cols-2 md:grid-cols-4 ">
-        {recomendations.map((movie) => {
+        {recomendations?.map((movie) => {
           {
             movie.length === 0 && (
               <div className="w-full flex items-center justify-center h-[40vh]">

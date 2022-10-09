@@ -6,6 +6,8 @@ import { DarkModeButton } from "./DarkModeButton";
 import { FaStar } from "react-icons/fa";
 import { useContext } from "react";
 import { FavoriteContext } from "../hooks/FavoriteContext";
+import Dashboard from "./Dashboard";
+import { GenresDash } from "./GenresDash";
 
 export function Navbar() {
   const { favorites } = useContext(FavoriteContext);
@@ -45,6 +47,14 @@ export function Navbar() {
               </Button>
             </Stack>
           </Link>
+
+          <Stack direction="row" spacing={2}>
+            <Dashboard />
+          </Stack>
+
+          <Stack direction="row" spacing={2}>
+            <GenresDash />
+          </Stack>
           <Link to={`/favorites`}>
             <Stack direction="row" spacing={2}>
               <Button>

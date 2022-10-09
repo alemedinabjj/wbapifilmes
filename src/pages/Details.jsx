@@ -33,8 +33,8 @@ export function Details() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = await `https://api.themoviedb.org/3/${type ? type : "Erro"}/${id}?${APIkey}&language=pt-BR&append_to_response=videos`;
-      fetch(url).then((res) =>
+      const url = `https://api.themoviedb.org/3/${type ? type : "Erro"}/${id}?${APIkey}&language=pt-BR&append_to_response=videos`;
+      await fetch(url).then((res) =>
         res.json().then((data) => {
           const movie = {
             id,

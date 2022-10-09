@@ -47,18 +47,20 @@ export const CardMovie = ({ movie }) => {
       <CardMedia component="img" alt={movie.title} height="140" image={image_path + movie.poster_path} />
       <CardContent className="dark:bg-slate-900 dark:text-white h-full">
         <Box sx={{ display: "flex", alignItems: "center", pb: 1 }}>
-          <span className="bg-black px-4 py-2 rounded-xl text-white">{movie?.media_type === "movie" ? "Filme" : "Série"}</span>
+          <span className="bg-black px-4 py-2 rounded-xl text-white">
+            {movie?.media_type ? (movie?.media_type === "movie" ? "Filme" : "Série") : "Filme"}
+          </span>
         </Box>
         <Typography gutterBottom variant="h5" component="div" className="flex h-20 items-start justify-between">
           <div className="flex w-full items-center justify-between">
             {" "}
             {movie?.media_type === "movie" ? (
               <Typography gutterBottom variant="h5" component="div" className="text-base">
-                {movie?.title.length > 20 ? movie?.title.substring(0, 20) + "..." : movie?.title}
+                {movie?.title?.length > 20 ? movie?.title.substring(0, 20) + "..." : movie?.title}
               </Typography>
             ) : (
               <Typography gutterBottom variant="h5" component="div" className="text-base">
-                {movie?.name.length > 20 ? movie?.name.substring(0, 20) + "..." : movie?.name}
+                {movie?.name?.length > 20 ? movie?.name.substring(0, 20) + "..." : movie?.name}
               </Typography>
             )}
             <div className="flex items-center gap-1 justify-start">
@@ -68,10 +70,10 @@ export const CardMovie = ({ movie }) => {
         </Typography>
       </CardContent>
       <CardActions className="dark:bg-slate-700 flex self-end justify-between items-center w-full absolute bottom-0 ">
-        <Link to={`/details/${movie?.media_type}/${movie.id}`}>
+        <Link to={`/details/${movie?.media_type ? movie?.media_type : "movie"}/${movie.id}`}>
           <Button size="small" onClick={backToTop} className="dark:text-white dark:border dark:border-white">
             Detalhes
-            {movie?.media_type ? (movie?.media_type === "movie" ? " do Filme" : " da Série") : ""}
+            {movie?.media_type ? (movie?.media_type === "movie" ? " do Filme" : " da Série") : " do Filme"}
           </Button>
         </Link>
         <Button variant="contained" size="small" onClick={handleFavorite} className="transition flex items-center gap-1">
